@@ -71,10 +71,10 @@
     <!-- ======================================================= -->
     <New id="framezap" class="org.eclipse.jetty.webapp.WebAppContext">
         <Call name="setContextPath">
-            <Arg>/framezap</Arg>
+            <Arg>/</Arg>
         </Call>
         <Call name="setWar">
-            <Arg><SystemProperty name="app.home" default=".."/>/webapps/framezap.war
+            <Arg><SystemProperty name="app.home" default=".."/>/webapps/framezap-web.war
             </Arg>
         </Call>
         <Get name="SessionHandler">
