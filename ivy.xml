@@ -29,5 +29,6 @@
 		<dependency org="org.eclipse.jetty.aggregate" name="jetty-all" rev="8.1.0.v20120127" force="true" conf="default"/>
 		<dependency org="pixelsimple" name="commons-util" rev="latest.integration" force="true" conf="default"/>
 		<dependency org="org.mortbay.jetty" name="jsp-2.1-glassfish" rev="2.1.v20100127" force="true" conf="default"/>
+		<dependency org="org.apache.commons" name="commons-lang3" rev="3.1" force="true" conf="default"/>
 	</dependencies>
 </ivy-module>

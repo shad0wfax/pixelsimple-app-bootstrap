@@ -12,5 +12,6 @@
 	<classpathentry kind="var" path="IVY_HOME"/>
 	<classpathentry kind="var" path="IVY_HOME/cache/javax.servlet/servlet-api/jars/servlet-api-2.5.jar"/>
 	<classpathentry kind="var" path="IVY_HOME/cache/org.eclipse.jetty.aggregate/jetty-all/jars/jetty-all-8.1.0.v20120127.jar"/>
+	<classpathentry kind="var" path="IVY_HOME/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.1.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
