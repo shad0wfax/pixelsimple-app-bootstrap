@@ -7,6 +7,7 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.security.SecureRandom;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.eclipse.jetty.server.Server;
@@ -46,13 +47,13 @@ public class AppBootstrap  {
 		String jettyConfigFile = System.getProperty(JETTY_CONFIG_FILE);
 		
 		if (jettyConfigFile == null || "".equalsIgnoreCase(jettyConfigFile.trim())) {
-			System.out.println("Looks like the Jetty Config file is not supplied. Existing the system");
+			LOG.error("Looks like the Jetty Config file is not supplied. Exiting the system");
 			System.exit(0);
 		}
 
 		File configFile = new File(jettyConfigFile); 
 		if (!configFile.isFile() && !configFile.exists()) {
-			System.out.println("Looks like the Jetty Config file is not valid - " + jettyConfigFile + "\nxisting the system");
+			LOG.error("Looks like the Jetty Config file is not valid - " + jettyConfigFile + "\n Exiting the system");
 			System.exit(0);
 		}
 		InputStream in;
@@ -65,8 +66,7 @@ public class AppBootstrap  {
 			server.start();
 			server.join();
 		} catch (Exception e) {
-			System.out.println("Error occurred starting the server. Check the trace. Will exit.");
-			e.printStackTrace();
+			LOG.error("Error occurred starting the server. Check the trace. Will exit.{}", e);
 			System.exit(0);
 		}
 		
@@ -121,7 +121,9 @@ public class AppBootstrap  {
 	private static String generatePlaySecretKey() {
 //		SecureRandom random = new SecureRandom();
 //		return new BigInteger(128, random).toString();
-		return RandomStringUtils.randomAlphanumeric(128);
+		// return RandomStringUtils.randomAlphanumeric(128);
+		// Even more secure:
+		return RandomStringUtils.random(128, 0, 0, true, true, null, new SecureRandom());
 	}
 
 }
